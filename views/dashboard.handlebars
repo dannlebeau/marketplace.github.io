@@ -1,0 +1,33 @@
+{{> menu}}
+
+<h1>Bienvenido al mercado WEB, seleccione sus productos</h1>
+<div class="productos">
+    <div class="row justify-content-center">
+        {{#each productos}}
+        <div class="col-lg-4 col-md-6 mb-4">
+            {{> producto nombre=this}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script>
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito(nombreProducto) {
+        // Aquí puedes agregar el código para enviar el producto al carrito
+        // Por ahora, solo mostraremos un mensaje en la consola
+        console.log(nombreProducto + ' se ha agregado al carrito');
+    }
+
+    // Agregar un event listener para las imágenes de productos
+    document.addEventListener('DOMContentLoaded', function() {
+        const productos = document.querySelectorAll('.producto img');
+        productos.forEach(function(producto) {
+            producto.addEventListener('click', function() {
+                agregarAlCarrito(this.parentElement.id);
+            });
+        });
+    });
+</script>
+
+
